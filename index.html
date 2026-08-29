@@ -1,12 +1,16 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>DriveLux Motors | Premium Cars & Automotive Services</title>
 
     <style>
+
         /* =========================
            RESET
         ========================= */
@@ -103,6 +107,38 @@
 
 
         /* =========================
+           MOBILE MENU BUTTON
+        ========================= */
+
+        .mobile-menu-btn {
+            display: none;
+
+            background: transparent;
+            border: 1px solid #e63946;
+
+            color: #fff;
+
+            font-size: 24px;
+
+            width: 45px;
+            height: 45px;
+
+            cursor: pointer;
+
+            border-radius: 4px;
+
+            align-items: center;
+            justify-content: center;
+
+            transition: 0.3s;
+        }
+
+        .mobile-menu-btn:hover {
+            background: #e63946;
+        }
+
+
+        /* =========================
            HERO
         ========================= */
 
@@ -148,6 +184,7 @@
         }
 
         @keyframes glow {
+
             from {
                 transform: scale(0.8);
             }
@@ -155,6 +192,7 @@
             to {
                 transform: scale(1.2);
             }
+
         }
 
         .hero-content {
@@ -733,14 +771,102 @@
 
 
         /* =========================
-           RESPONSIVE
+           RESPONSIVE TABLET
         ========================= */
 
         @media (max-width: 1000px) {
 
+            /* MOBILE HEADER */
+
+            header {
+                position: fixed;
+                top: 0;
+                left: 0;
+
+                width: 100%;
+
+                background: rgba(8,8,8,0.96);
+
+                backdrop-filter: blur(15px);
+
+                border-bottom: 1px solid #222;
+            }
+
+            nav {
+                height: 75px;
+                position: relative;
+            }
+
+            /* SHOW HAMBURGER */
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            /* MOBILE MENU */
+
             .nav-links {
+
+                display: none;
+
+                position: absolute;
+
+                top: 75px;
+                left: 0;
+
+                width: 100%;
+
+                flex-direction: column;
+
+                gap: 0;
+
+                background: rgba(8,8,8,0.98);
+
+                border-top: 1px solid #222;
+
+                border-bottom: 1px solid #222;
+
+                padding: 10px 0;
+
+                z-index: 9999;
+            }
+
+            /* OPEN MENU */
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+
+                display: block;
+
+                width: 100%;
+
+                padding: 16px 5%;
+
+                font-size: 15px;
+
+                border-bottom: 1px solid #1c1c1c;
+            }
+
+            .nav-links a:hover {
+                background: #151515;
+                color: #e63946;
+            }
+
+            /* HIDE DESKTOP BUTTON */
+
+            .nav-button {
                 display: none;
             }
+
+
+            /* EXISTING RESPONSIVE */
 
             .stats {
                 grid-template-columns: repeat(2,1fr);
@@ -774,13 +900,43 @@
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
             }
+
         }
 
+
+        /* =========================
+           MOBILE
+        ========================= */
 
         @media (max-width: 600px) {
 
             section {
                 padding: 75px 5%;
+            }
+
+            header {
+                position: fixed;
+            }
+
+            nav {
+                width: 90%;
+                height: 70px;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+
+            .mobile-menu-btn {
+
+                width: 42px;
+                height: 42px;
+
+                font-size: 22px;
+            }
+
+            .nav-links {
+                top: 70px;
             }
 
             .hero {
@@ -799,10 +955,6 @@
             .hero-buttons {
                 justify-content: center;
                 flex-wrap: wrap;
-            }
-
-            .nav-button {
-                display: none;
             }
 
             .stats,
@@ -825,9 +977,11 @@
             .why-image {
                 height: 350px;
             }
+
         }
 
     </style>
+
 </head>
 
 
@@ -847,18 +1001,67 @@
         </a>
 
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="cars.html">Cars</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#finance">Finance</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-              <li><a href="teams.html">Teams</a></li>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="cars.html">
+                    Cars
+                </a>
+            </li>
+
+            <li>
+                <a href="services.html">
+                    Services
+                </a>
+            </li>
+
+            <li>
+                <a href="finance.html">
+                    Finance
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+
+            <li>
+                <a href="teams.html">
+                    Teams
+                </a>
+            </li>
+
         </ul>
+
 
         <a href="#contact" class="nav-button">
             Book a Test Drive
         </a>
+
+
+        <!-- MOBILE MENU BUTTON -->
+
+        <button
+            class="mobile-menu-btn"
+            id="mobileMenuBtn"
+            aria-label="Open Menu"
+            type="button"
+        >
+            ☰
+        </button>
 
     </nav>
 
@@ -912,23 +1115,54 @@
 <div class="stats">
 
     <div class="stat">
-        <h2>15+</h2>
-        <p>Years Experience</p>
+
+        <h2>
+            15+
+        </h2>
+
+        <p>
+            Years Experience
+        </p>
+
     </div>
 
-    <div class="stat">
-        <h2>2.5K+</h2>
-        <p>Cars Delivered</p>
-    </div>
 
     <div class="stat">
-        <h2>98%</h2>
-        <p>Happy Customers</p>
+
+        <h2>
+            2.5K+
+        </h2>
+
+        <p>
+            Cars Delivered
+        </p>
+
     </div>
 
+
     <div class="stat">
-        <h2>24/7</h2>
-        <p>Customer Support</p>
+
+        <h2>
+            98%
+        </h2>
+
+        <p>
+            Happy Customers
+        </p>
+
+    </div>
+
+
+    <div class="stat">
+
+        <h2>
+            24/7
+        </h2>
+
+        <p>
+            Customer Support
+        </p>
+
     </div>
 
 </div>
@@ -942,9 +1176,13 @@
 
     <div class="section-heading">
 
-        <small>FIND YOUR STYLE</small>
+        <small>
+            FIND YOUR STYLE
+        </small>
 
-        <h2>Choose Your Car</h2>
+        <h2>
+            Choose Your Car
+        </h2>
 
         <p>
             From everyday city cars to powerful performance
@@ -956,11 +1194,14 @@
 
     <div class="category-grid">
 
+
         <a href="#cars" class="category">
 
             <div class="category-content">
 
-                <h3>Sedans</h3>
+                <h3>
+                    Sedans
+                </h3>
 
                 <p>
                     Comfort & everyday performance
@@ -975,7 +1216,9 @@
 
             <div class="category-content">
 
-                <h3>SUVs</h3>
+                <h3>
+                    SUVs
+                </h3>
 
                 <p>
                     Space, power & adventure
@@ -990,7 +1233,9 @@
 
             <div class="category-content">
 
-                <h3>Sports Cars</h3>
+                <h3>
+                    Sports Cars
+                </h3>
 
                 <p>
                     Performance without compromise
@@ -1005,7 +1250,9 @@
 
             <div class="category-content">
 
-                <h3>Luxury</h3>
+                <h3>
+                    Luxury
+                </h3>
 
                 <p>
                     Premium comfort & technology
@@ -1028,9 +1275,13 @@
 
     <div class="section-heading">
 
-        <small>OUR COLLECTION</small>
+        <small>
+            OUR COLLECTION
+        </small>
 
-        <h2>Featured Vehicles</h2>
+        <h2>
+            Featured Vehicles
+        </h2>
 
         <p>
             Explore some of our most popular vehicles.
@@ -1061,12 +1312,24 @@
                     Luxury Sedan
                 </span>
 
-                <h3>Mercedes Premium</h3>
+                <h3>
+                    Mercedes Premium
+                </h3>
 
                 <div class="car-details">
-                    <span>Automatic</span>
-                    <span>Petrol</span>
-                    <span>5 Seats</span>
+
+                    <span>
+                        Automatic
+                    </span>
+
+                    <span>
+                        Petrol
+                    </span>
+
+                    <span>
+                        5 Seats
+                    </span>
+
                 </div>
 
                 <div class="price">
@@ -1105,12 +1368,24 @@
                     Premium SUV
                 </span>
 
-                <h3>Range Rover Sport</h3>
+                <h3>
+                    Range Rover Sport
+                </h3>
 
                 <div class="car-details">
-                    <span>Automatic</span>
-                    <span>Hybrid</span>
-                    <span>5 Seats</span>
+
+                    <span>
+                        Automatic
+                    </span>
+
+                    <span>
+                        Hybrid
+                    </span>
+
+                    <span>
+                        5 Seats
+                    </span>
+
                 </div>
 
                 <div class="price">
@@ -1149,12 +1424,24 @@
                     Sports Car
                 </span>
 
-                <h3>Performance GT</h3>
+                <h3>
+                    Performance GT
+                </h3>
 
                 <div class="car-details">
-                    <span>Automatic</span>
-                    <span>Petrol</span>
-                    <span>2 Seats</span>
+
+                    <span>
+                        Automatic
+                    </span>
+
+                    <span>
+                        Petrol
+                    </span>
+
+                    <span>
+                        2 Seats
+                    </span>
+
                 </div>
 
                 <div class="price">
@@ -1193,12 +1480,24 @@
                     Electric
                 </span>
 
-                <h3>Future EV</h3>
+                <h3>
+                    Future EV
+                </h3>
 
                 <div class="car-details">
-                    <span>Automatic</span>
-                    <span>Electric</span>
-                    <span>5 Seats</span>
+
+                    <span>
+                        Automatic
+                    </span>
+
+                    <span>
+                        Electric
+                    </span>
+
+                    <span>
+                        5 Seats
+                    </span>
+
                 </div>
 
                 <div class="price">
@@ -1237,12 +1536,24 @@
                     Luxury Coupe
                 </span>
 
-                <h3>Executive Coupe</h3>
+                <h3>
+                    Executive Coupe
+                </h3>
 
                 <div class="car-details">
-                    <span>Automatic</span>
-                    <span>Petrol</span>
-                    <span>4 Seats</span>
+
+                    <span>
+                        Automatic
+                    </span>
+
+                    <span>
+                        Petrol
+                    </span>
+
+                    <span>
+                        4 Seats
+                    </span>
+
                 </div>
 
                 <div class="price">
@@ -1281,12 +1592,24 @@
                     Family SUV
                 </span>
 
-                <h3>Adventure X</h3>
+                <h3>
+                    Adventure X
+                </h3>
 
                 <div class="car-details">
-                    <span>Automatic</span>
-                    <span>Diesel</span>
-                    <span>7 Seats</span>
+
+                    <span>
+                        Automatic
+                    </span>
+
+                    <span>
+                        Diesel
+                    </span>
+
+                    <span>
+                        7 Seats
+                    </span>
+
                 </div>
 
                 <div class="price">
@@ -1318,9 +1641,13 @@
 
     <div class="section-heading">
 
-        <small>COMPLETE AUTOMOTIVE CARE</small>
+        <small>
+            COMPLETE AUTOMOTIVE CARE
+        </small>
 
-        <h2>Our Services</h2>
+        <h2>
+            Our Services
+        </h2>
 
         <p>
             More than just a dealership. We take care of
@@ -1335,9 +1662,13 @@
 
         <div class="service">
 
-            <div class="service-icon">🚘</div>
+            <div class="service-icon">
+                🚘
+            </div>
 
-            <h3>New Car Sales</h3>
+            <h3>
+                New Car Sales
+            </h3>
 
             <p>
                 Explore the latest models with advanced
@@ -1349,9 +1680,13 @@
 
         <div class="service">
 
-            <div class="service-icon">🔑</div>
+            <div class="service-icon">
+                🔑
+            </div>
 
-            <h3>Used Cars</h3>
+            <h3>
+                Used Cars
+            </h3>
 
             <p>
                 Quality pre-owned vehicles inspected by
@@ -1363,9 +1698,13 @@
 
         <div class="service">
 
-            <div class="service-icon">💰</div>
+            <div class="service-icon">
+                💰
+            </div>
 
-            <h3>Car Financing</h3>
+            <h3>
+                Car Financing
+            </h3>
 
             <p>
                 Flexible financing options designed around
@@ -1377,9 +1716,13 @@
 
         <div class="service">
 
-            <div class="service-icon">🔧</div>
+            <div class="service-icon">
+                🔧
+            </div>
 
-            <h3>Car Service</h3>
+            <h3>
+                Car Service
+            </h3>
 
             <p>
                 Professional maintenance, diagnostics,
@@ -1391,9 +1734,13 @@
 
         <div class="service">
 
-            <div class="service-icon">🛞</div>
+            <div class="service-icon">
+                🛞
+            </div>
 
-            <h3>Tyres & Wheels</h3>
+            <h3>
+                Tyres & Wheels
+            </h3>
 
             <p>
                 Premium tyres, wheel alignment, balancing
@@ -1405,9 +1752,13 @@
 
         <div class="service">
 
-            <div class="service-icon">✨</div>
+            <div class="service-icon">
+                ✨
+            </div>
 
-            <h3>Car Detailing</h3>
+            <h3>
+                Car Detailing
+            </h3>
 
             <p>
                 Interior cleaning, exterior detailing,
@@ -1419,9 +1770,13 @@
 
         <div class="service">
 
-            <div class="service-icon">🔄</div>
+            <div class="service-icon">
+                🔄
+            </div>
 
-            <h3>Car Exchange</h3>
+            <h3>
+                Car Exchange
+            </h3>
 
             <p>
                 Trade in your current vehicle and upgrade
@@ -1433,9 +1788,13 @@
 
         <div class="service">
 
-            <div class="service-icon">📋</div>
+            <div class="service-icon">
+                📋
+            </div>
 
-            <h3>Insurance Support</h3>
+            <h3>
+                Insurance Support
+            </h3>
 
             <p>
                 Get assistance with vehicle insurance,
@@ -1447,9 +1806,13 @@
 
         <div class="service">
 
-            <div class="service-icon">⚡</div>
+            <div class="service-icon">
+                ⚡
+            </div>
 
-            <h3>EV Services</h3>
+            <h3>
+                EV Services
+            </h3>
 
             <p>
                 Dedicated electric vehicle support,
@@ -1535,7 +1898,9 @@
 
     <div class="section-heading">
 
-        <small>MAKE IT YOURS</small>
+        <small>
+            MAKE IT YOURS
+        </small>
 
         <h2>
             Drive Now.
@@ -1564,9 +1929,13 @@
 
     <div class="section-heading">
 
-        <small>CUSTOMER STORIES</small>
+        <small>
+            CUSTOMER STORIES
+        </small>
 
-        <h2>What Drivers Say</h2>
+        <h2>
+            What Drivers Say
+        </h2>
 
     </div>
 
@@ -1587,8 +1956,13 @@
             </p>
 
             <div class="customer">
+
                 James Wilson
-                <span>Verified Customer</span>
+
+                <span>
+                    Verified Customer
+                </span>
+
             </div>
 
         </div>
@@ -1607,8 +1981,13 @@
             </p>
 
             <div class="customer">
+
                 Sophia Martin
-                <span>Verified Customer</span>
+
+                <span>
+                    Verified Customer
+                </span>
+
             </div>
 
         </div>
@@ -1627,8 +2006,13 @@
             </p>
 
             <div class="customer">
+
                 Daniel Carter
-                <span>Verified Customer</span>
+
+                <span>
+                    Verified Customer
+                </span>
+
             </div>
 
         </div>
@@ -1667,7 +2051,9 @@
 
             <div class="contact-item">
 
-                <strong>PHONE</strong>
+                <strong>
+                    PHONE
+                </strong>
 
                 +1 800 555 0199
 
@@ -1676,7 +2062,9 @@
 
             <div class="contact-item">
 
-                <strong>EMAIL</strong>
+                <strong>
+                    EMAIL
+                </strong>
 
                 hello@drivelux.com
 
@@ -1685,7 +2073,9 @@
 
             <div class="contact-item">
 
-                <strong>LOCATION</strong>
+                <strong>
+                    LOCATION
+                </strong>
 
                 125 Motor Avenue, New York, USA
 
@@ -1713,19 +2103,33 @@
 
             <select>
 
-                <option>Select Service</option>
+                <option>
+                    Select Service
+                </option>
 
-                <option>Buy a Car</option>
+                <option>
+                    Buy a Car
+                </option>
 
-                <option>Book Test Drive</option>
+                <option>
+                    Book Test Drive
+                </option>
 
-                <option>Car Financing</option>
+                <option>
+                    Car Financing
+                </option>
 
-                <option>Sell / Exchange Car</option>
+                <option>
+                    Sell / Exchange Car
+                </option>
 
-                <option>Car Service</option>
+                <option>
+                    Car Service
+                </option>
 
-                <option>EV Service</option>
+                <option>
+                    EV Service
+                </option>
 
             </select>
 
@@ -1773,13 +2177,36 @@
 
         <div>
 
-            <h4>Cars</h4>
+            <h4>
+                Cars
+            </h4>
 
             <ul>
-                <li><a href="#cars">New Cars</a></li>
-                <li><a href="#cars">Used Cars</a></li>
-                <li><a href="#cars">Luxury Cars</a></li>
-                <li><a href="#cars">Electric Cars</a></li>
+
+                <li>
+                    <a href="#cars">
+                        New Cars
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#cars">
+                        Used Cars
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#cars">
+                        Luxury Cars
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#cars">
+                        Electric Cars
+                    </a>
+                </li>
+
             </ul>
 
         </div>
@@ -1787,13 +2214,36 @@
 
         <div>
 
-            <h4>Services</h4>
+            <h4>
+                Services
+            </h4>
 
             <ul>
-                <li><a href="#services">Car Service</a></li>
-                <li><a href="#services">Financing</a></li>
-                <li><a href="#services">Insurance</a></li>
-                <li><a href="#services">Car Detailing</a></li>
+
+                <li>
+                    <a href="#services">
+                        Car Service
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#services">
+                        Financing
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#services">
+                        Insurance
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#services">
+                        Car Detailing
+                    </a>
+                </li>
+
             </ul>
 
         </div>
@@ -1801,13 +2251,36 @@
 
         <div>
 
-            <h4>Company</h4>
+            <h4>
+                Company
+            </h4>
 
             <ul>
-                <li><a href="index.html">About Us</a></li>
-                <li><a href="cars.html">Contact</a></li>
-                <li><a href="#contact">Test Drive</a></li>
-                <li><a href="#contact">Support</a></li>
+
+                <li>
+                    <a href="index.html">
+                        About Us
+                    </a>
+                </li>
+
+                <li>
+                    <a href="cars.html">
+                        Contact
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contact">
+                        Test Drive
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contact">
+                        Support
+                    </a>
+                </li>
+
             </ul>
 
         </div>
@@ -1824,6 +2297,72 @@
 </footer>
 
 
+<!-- =========================
+     MOBILE NAV JAVASCRIPT
+========================= -->
+
+<script>
+
+    const mobileMenuBtn =
+        document.getElementById("mobileMenuBtn");
+
+    const navLinks =
+        document.querySelector(".nav-links");
+
+
+    mobileMenuBtn.addEventListener("click", function () {
+
+        navLinks.classList.toggle("active");
+
+
+        if (navLinks.classList.contains("active")) {
+
+            mobileMenuBtn.innerHTML = "✕";
+
+            mobileMenuBtn.setAttribute(
+                "aria-label",
+                "Close Menu"
+            );
+
+        } else {
+
+            mobileMenuBtn.innerHTML = "☰";
+
+            mobileMenuBtn.setAttribute(
+                "aria-label",
+                "Open Menu"
+            );
+
+        }
+
+    });
+
+
+    /* Close menu when a navigation link is clicked */
+
+    document
+        .querySelectorAll(".nav-links a")
+        .forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                navLinks.classList.remove("active");
+
+                mobileMenuBtn.innerHTML = "☰";
+
+                mobileMenuBtn.setAttribute(
+                    "aria-label",
+                    "Open Menu"
+                );
+
+            });
+
+        });
+
+</script>
+
+
 </body>
+
 </html>
 ```

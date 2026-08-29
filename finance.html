@@ -1,9 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="DriveLux Motors offers flexible car financing options, vehicle loans, leasing and premium finance solutions.">
 
     <title>Car Finance | DriveLux Motors</title>
 
@@ -28,11 +32,22 @@
             background: #080808;
             color: #fff;
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body.menu-open {
+            overflow: hidden;
         }
 
         a {
             text-decoration: none;
             color: inherit;
+        }
+
+        button,
+        input,
+        select {
+            font-family: inherit;
         }
 
 
@@ -43,10 +58,14 @@
         header {
             position: sticky;
             top: 0;
-            z-index: 999;
+            z-index: 9999;
+
+            width: 100%;
 
             background: rgba(8, 8, 8, 0.94);
+
             backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
 
             border-bottom: 1px solid #222;
         }
@@ -54,33 +73,76 @@
         nav {
             width: 90%;
             max-width: 1400px;
-            height: 80px;
+
+            min-height: 80px;
+
             margin: auto;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
+
+            position: relative;
         }
+
+
+        /* LOGO */
 
         .logo {
             font-size: 27px;
             font-weight: 900;
             letter-spacing: 2px;
+
+            position: relative;
+            z-index: 10002;
+
+            white-space: nowrap;
         }
 
         .logo span {
             color: #e63946;
         }
 
+
+        /* DESKTOP LINKS */
+
         .nav-links {
             display: flex;
+
+            align-items: center;
+
             gap: 30px;
+
+            list-style: none;
+        }
+
+        .nav-links li {
             list-style: none;
         }
 
         .nav-links a {
+            position: relative;
+
             color: #ccc;
+
             font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -8px;
+
+            width: 0;
+            height: 2px;
+
+            background: #e63946;
+
             transition: 0.3s;
         }
 
@@ -88,15 +150,125 @@
             color: #e63946;
         }
 
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: #e63946;
+        }
+
+
+        /* NAV BUTTON */
+
         .nav-button {
             border: 1px solid #e63946;
+
             padding: 11px 20px;
+
             border-radius: 4px;
+
             transition: 0.3s;
+
+            white-space: nowrap;
         }
 
         .nav-button:hover {
             background: #e63946;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           MOBILE MENU BUTTON
+        ========================= */
+
+        .menu-toggle {
+            display: none;
+
+            width: 45px;
+            height: 45px;
+
+            border: 1px solid #333;
+
+            background: #111;
+
+            color: #fff;
+
+            cursor: pointer;
+
+            align-items: center;
+            justify-content: center;
+
+            flex-direction: column;
+
+            gap: 5px;
+
+            border-radius: 4px;
+
+            transition: 0.3s;
+
+            position: relative;
+
+            z-index: 10002;
+        }
+
+        .menu-toggle:hover {
+            border-color: #e63946;
+        }
+
+        .menu-toggle span {
+            display: block;
+
+            width: 21px;
+            height: 2px;
+
+            background: #fff;
+
+            transition: 0.3s;
+        }
+
+
+        /* HAMBURGER ANIMATION */
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+
+        /* =========================
+           MOBILE NAV OVERLAY
+        ========================= */
+
+        .mobile-overlay {
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.7);
+
+            z-index: 9998;
+
+            opacity: 0;
+
+            transition: 0.3s;
+        }
+
+        .mobile-overlay.active {
+            display: block;
+            opacity: 1;
         }
 
 
@@ -161,6 +333,7 @@
         .hero-content {
             width: 90%;
             max-width: 1400px;
+
             margin: auto;
 
             position: relative;
@@ -169,12 +342,15 @@
 
         .hero-content small {
             color: #e63946;
+
             letter-spacing: 4px;
+
             font-weight: bold;
         }
 
         .hero-content h1 {
             font-size: clamp(55px, 7vw, 100px);
+
             line-height: 0.95;
 
             max-width: 900px;
@@ -196,6 +372,7 @@
 
         .hero-buttons {
             display: flex;
+
             gap: 15px;
 
             margin-top: 30px;
@@ -217,6 +394,7 @@
 
         .btn:hover {
             transform: translateY(-5px);
+
             box-shadow:
                 0 15px 35px rgba(230,57,70,0.3);
         }
@@ -229,6 +407,7 @@
 
         .btn-outline:hover {
             border-color: #e63946;
+
             background: #e63946;
         }
 
@@ -247,6 +426,7 @@
 
         .stats-grid {
             max-width: 1200px;
+
             margin: auto;
 
             display: grid;
@@ -267,11 +447,13 @@
 
         .stat h3 {
             font-size: 32px;
+
             color: #e63946;
         }
 
         .stat p {
             color: #777;
+
             font-size: 12px;
         }
 
@@ -290,6 +472,7 @@
 
         .intro small {
             color: #e63946;
+
             letter-spacing: 3px;
         }
 
@@ -809,6 +992,12 @@
             list-style: none;
 
             position: relative;
+
+            padding-right: 55px;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
         }
 
         summary::after {
@@ -949,14 +1138,27 @@
         }
 
 
-        /* =========================
-           RESPONSIVE
-        ========================= */
+        /* =====================================================
+           TABLET
+        ===================================================== */
 
         @media (max-width: 1000px) {
 
+            nav {
+                min-height: 72px;
+            }
+
             .nav-links {
-                display: none;
+                gap: 18px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+
+            .nav-button {
+                padding: 10px 15px;
+                font-size: 13px;
             }
 
             .stats-grid {
@@ -993,40 +1195,477 @@
         }
 
 
-        @media (max-width: 650px) {
+        /* =====================================================
+           MOBILE NAVBAR
+        ===================================================== */
+
+        @media (max-width: 800px) {
+
+            nav {
+                width: 92%;
+
+                min-height: 70px;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
 
             .nav-button {
                 display: none;
             }
 
+            .nav-links {
+
+                position: fixed;
+
+                top: 0;
+                right: -100%;
+
+                width: min(82%, 350px);
+
+                height: 100vh;
+
+                padding:
+                    110px
+                    30px
+                    40px;
+
+                background:
+                    linear-gradient(
+                        180deg,
+                        #111,
+                        #080808
+                    );
+
+                border-left: 1px solid #292929;
+
+                display: flex;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                justify-content: flex-start;
+
+                gap: 0;
+
+                overflow-y: auto;
+
+                box-shadow:
+                    -20px 0 60px rgba(0,0,0,0.5);
+
+                transition:
+                    right 0.4s ease;
+
+                z-index: 10001;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                width: 100%;
+
+                border-bottom: 1px solid #222;
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-links a {
+
+                display: block;
+
+                width: 100%;
+
+                padding: 17px 5px;
+
+                font-size: 16px;
+
+                color: #ddd;
+            }
+
+            .nav-links a::after {
+                display: none;
+            }
+
+            .nav-links a:hover,
+            .nav-links a.active {
+                color: #e63946;
+
+                padding-left: 10px;
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE CONTENT
+        ===================================================== */
+
+        @media (max-width: 650px) {
+
+            nav {
+                width: 92%;
+            }
+
+            .logo {
+                font-size: 23px;
+
+                letter-spacing: 1.5px;
+            }
+
+            .menu-toggle {
+                width: 42px;
+                height: 42px;
+            }
+
+
+            /* HERO */
+
             .finance-hero {
-                min-height: 75vh;
+                min-height: 78vh;
+
+                background-position:
+                    62% center;
+            }
+
+            .hero-content {
+                width: 88%;
+            }
+
+            .hero-content small {
+                font-size: 11px;
+
+                letter-spacing: 2.5px;
+            }
+
+            .hero-content h1 {
+                font-size:
+                    clamp(
+                        44px,
+                        13vw,
+                        70px
+                    );
+
+                line-height: 0.95;
+
+                margin: 16px 0;
+            }
+
+            .hero-content p {
+                font-size: 15px;
             }
 
             .hero-buttons {
                 flex-direction: column;
 
-                align-items: flex-start;
+                align-items: stretch;
+
+                gap: 12px;
+            }
+
+            .btn {
+                text-align: center;
+
+                width: 100%;
+
+                padding: 14px 18px;
+            }
+
+
+            /* STATS */
+
+            .stats {
+                padding: 35px 6%;
             }
 
             .stats-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
+
+                gap: 20px;
+            }
+
+            .stat {
+                padding: 10px 5px;
+            }
+
+            .stat h3 {
+                font-size: 26px;
+            }
+
+            .stat p {
+                font-size: 11px;
+            }
+
+
+            /* INTRO */
+
+            .intro {
+                padding: 80px 7%;
+            }
+
+            .intro small {
+                font-size: 11px;
+
+                letter-spacing: 2px;
+            }
+
+            .intro h2 {
+                font-size:
+                    clamp(
+                        36px,
+                        10vw,
+                        50px
+                    );
+
+                line-height: 1.05;
+            }
+
+            .intro p {
+                font-size: 14px;
+            }
+
+
+            /* FINANCE */
+
+            .finance-options {
+                padding: 80px 7%;
+            }
+
+            .section-heading {
+                margin-bottom: 35px;
+            }
+
+            .section-heading small {
+                font-size: 11px;
+
+                letter-spacing: 2px;
+            }
+
+            .section-heading h2 {
+                font-size:
+                    clamp(
+                        35px,
+                        10vw,
+                        50px
+                    );
+            }
+
+            .section-heading p {
+                font-size: 14px;
             }
 
             .finance-grid {
                 grid-template-columns: 1fr;
             }
 
+            .finance-card {
+                padding: 32px 25px;
+            }
+
+
+            /* CALCULATOR */
+
+            .calculator {
+                padding: 80px 7%;
+            }
+
+            .calculator-container {
+                gap: 40px;
+            }
+
+            .calculator-content h2 {
+                font-size:
+                    clamp(
+                        36px,
+                        10vw,
+                        52px
+                    );
+            }
+
+            .calculator-content p {
+                font-size: 14px;
+            }
+
+            .calculator-box {
+                padding: 25px 20px;
+            }
+
+            .estimate strong {
+                font-size: 27px;
+            }
+
+
+            /* BENEFITS */
+
+            .benefits {
+                padding: 80px 7%;
+            }
+
+            .benefits-image {
+                min-height: 350px;
+
+                background-position: center;
+            }
+
+            .benefits-content h2 {
+                font-size:
+                    clamp(
+                        36px,
+                        10vw,
+                        52px
+                    );
+            }
+
+            .benefits-content p {
+                font-size: 14px;
+            }
+
+
+            /* PROCESS */
+
+            .process {
+                padding: 80px 7%;
+            }
+
+            .process-heading {
+                margin-bottom: 40px;
+            }
+
+            .process-heading h2 {
+                font-size:
+                    clamp(
+                        38px,
+                        10vw,
+                        52px
+                    );
+            }
+
             .process-grid {
                 grid-template-columns: 1fr;
             }
 
-            .benefits-image {
-                min-height: 380px;
+
+            /* FAQ */
+
+            .faq {
+                padding: 80px 7%;
+            }
+
+            .faq-heading {
+                margin-bottom: 35px;
+            }
+
+            .faq-heading h2 {
+                font-size:
+                    clamp(
+                        38px,
+                        10vw,
+                        52px
+                    );
+            }
+
+            summary {
+                padding: 18px;
+
+                padding-right: 50px;
+
+                font-size: 14px;
+            }
+
+            details p {
+                padding:
+                    0
+                    18px
+                    18px;
+
+                font-size: 13px;
+            }
+
+
+            /* CTA */
+
+            .cta {
+                padding: 90px 7%;
+            }
+
+            .cta h2 {
+                font-size:
+                    clamp(
+                        43px,
+                        12vw,
+                        65px
+                    );
+            }
+
+            .cta p {
+                font-size: 14px;
+            }
+
+
+            /* FOOTER */
+
+            footer {
+                padding:
+                    50px
+                    7%
+                    25px;
             }
 
             .footer-grid {
                 grid-template-columns: 1fr;
+
+                gap: 35px;
+
+                text-align: left;
+            }
+
+            .footer-logo {
+                font-size: 25px;
+            }
+
+        }
+
+
+        /* =====================================================
+           VERY SMALL MOBILE
+        ===================================================== */
+
+        @media (max-width: 380px) {
+
+            .logo {
+                font-size: 21px;
+            }
+
+            .menu-toggle {
+                width: 40px;
+                height: 40px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat {
+                border-bottom: 1px solid #292929;
+
+                padding-bottom: 18px;
+            }
+
+            .stat:last-child {
+                border-bottom: none;
+            }
+
+            .nav-links {
+                width: 88%;
+            }
+
+            .calculator-box {
+                padding: 20px 16px;
             }
 
         }
@@ -1052,7 +1691,9 @@
         </a>
 
 
-        <ul class="nav-links">
+        <!-- DESKTOP + MOBILE NAV -->
+
+        <ul class="nav-links" id="navLinks">
 
             <li>
                 <a href="index.html">
@@ -1073,7 +1714,7 @@
             </li>
 
             <li>
-                <a href="finance.html">
+                <a href="finance.html" class="active">
                     Finance
                 </a>
             </li>
@@ -1088,11 +1729,18 @@
                 <a href="contact.html">
                     Contact
                 </a>
-
             </li>
-    <li><a href="teams.html">Teams</a></li>
+
+            <li>
+                <a href="teams.html">
+                    Teams
+                </a>
+            </li>
+
         </ul>
 
+
+        <!-- DESKTOP BUTTON -->
 
         <a
             href="contact.html"
@@ -1101,9 +1749,34 @@
             Apply Now
         </a>
 
+
+        <!-- MOBILE MENU -->
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            type="button"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
     </nav>
 
 </header>
+
+
+<!-- MOBILE OVERLAY -->
+
+<div
+    class="mobile-overlay"
+    id="mobileOverlay">
+</div>
 
 
 
@@ -1278,8 +1951,6 @@
     <div class="finance-grid">
 
 
-        <!-- CARD 1 -->
-
         <div class="finance-card">
 
             <div class="finance-icon">
@@ -1318,8 +1989,6 @@
         </div>
 
 
-        <!-- CARD 2 -->
-
         <div class="finance-card">
 
             <div class="finance-icon">
@@ -1357,8 +2026,6 @@
 
         </div>
 
-
-        <!-- CARD 3 -->
 
         <div class="finance-card">
 
@@ -1569,7 +2236,6 @@
             <ul class="benefit-list">
 
                 <li>
-
                     <span class="benefit-icon">
                         ✓
                     </span>
@@ -1577,12 +2243,10 @@
                     <span>
                         Competitive financing options
                     </span>
-
                 </li>
 
 
                 <li>
-
                     <span class="benefit-icon">
                         ✓
                     </span>
@@ -1590,12 +2254,10 @@
                     <span>
                         Flexible payment terms
                     </span>
-
                 </li>
 
 
                 <li>
-
                     <span class="benefit-icon">
                         ✓
                     </span>
@@ -1603,12 +2265,10 @@
                     <span>
                         Fast application process
                     </span>
-
                 </li>
 
 
                 <li>
-
                     <span class="benefit-icon">
                         ✓
                     </span>
@@ -1616,12 +2276,10 @@
                     <span>
                         Transparent finance information
                     </span>
-
                 </li>
 
 
                 <li>
-
                     <span class="benefit-icon">
                         ✓
                     </span>
@@ -1629,12 +2287,10 @@
                     <span>
                         Dedicated finance specialists
                     </span>
-
                 </li>
 
 
                 <li>
-
                     <span class="benefit-icon">
                         ✓
                     </span>
@@ -1642,7 +2298,6 @@
                     <span>
                         Support throughout your purchase
                     </span>
-
                 </li>
 
             </ul>
@@ -2036,6 +2691,165 @@
 </footer>
 
 
+
+<!-- =========================
+     JAVASCRIPT
+     MOBILE NAVIGATION
+========================= -->
+
+<script>
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    const mobileOverlay = document.getElementById("mobileOverlay");
+
+
+
+    /* OPEN / CLOSE MENU */
+
+    function toggleMenu() {
+
+        const isOpen =
+            navLinks.classList.contains("active");
+
+        if (isOpen) {
+
+            closeMenu();
+
+        } else {
+
+            openMenu();
+
+        }
+
+    }
+
+
+
+    /* OPEN MENU */
+
+    function openMenu() {
+
+        navLinks.classList.add("active");
+
+        menuToggle.classList.add("active");
+
+        mobileOverlay.classList.add("active");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+        menuToggle.setAttribute(
+            "aria-label",
+            "Close navigation menu"
+        );
+
+        document.body.classList.add("menu-open");
+
+    }
+
+
+
+    /* CLOSE MENU */
+
+    function closeMenu() {
+
+        navLinks.classList.remove("active");
+
+        menuToggle.classList.remove("active");
+
+        mobileOverlay.classList.remove("active");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        menuToggle.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+        );
+
+        document.body.classList.remove("menu-open");
+
+    }
+
+
+
+    /* MENU BUTTON */
+
+    menuToggle.addEventListener(
+        "click",
+        toggleMenu
+    );
+
+
+
+    /* OVERLAY CLICK */
+
+    mobileOverlay.addEventListener(
+        "click",
+        closeMenu
+    );
+
+
+
+    /* CLOSE WHEN NAV LINK IS CLICKED */
+
+    const allNavLinks =
+        navLinks.querySelectorAll("a");
+
+    allNavLinks.forEach(function(link) {
+
+        link.addEventListener(
+            "click",
+            closeMenu
+        );
+
+    });
+
+
+
+    /* ESCAPE KEY */
+
+    document.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Escape" &&
+                navLinks.classList.contains("active")
+            ) {
+
+                closeMenu();
+
+            }
+
+        }
+    );
+
+
+
+    /* RESET MENU WHEN RESIZING TO DESKTOP */
+
+    window.addEventListener(
+        "resize",
+        function() {
+
+            if (window.innerWidth > 800) {
+
+                closeMenu();
+
+            }
+
+        }
+    );
+
+</script>
+
+
 </body>
+
 </html>
-```

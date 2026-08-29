@@ -1,0 +1,1827 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cars | DriveLux Motors</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+
+            background: rgba(8, 8, 8, 0.92);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid #222;
+        }
+
+        nav {
+            width: 90%;
+            max-width: 1400px;
+            height: 80px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #e63946;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ccc;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #e63946;
+        }
+
+        .nav-btn {
+            border: 1px solid #e63946;
+            padding: 11px 20px;
+            border-radius: 4px;
+
+            transition: 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: #e63946;
+        }
+
+
+        /* =========================
+           PAGE HERO
+        ========================= */
+
+        .page-hero {
+            min-height: 55vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.7),
+                    rgba(0,0,0,0.85)
+                ),
+                url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2000&q=90")
+                center/cover;
+        }
+
+        .page-hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            background: #e63946;
+
+            border-radius: 50%;
+
+            filter: blur(180px);
+
+            opacity: 0.15;
+
+            animation: heroGlow 5s infinite alternate;
+        }
+
+        @keyframes heroGlow {
+
+            from {
+                transform: scale(0.7);
+            }
+
+            to {
+                transform: scale(1.3);
+            }
+
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content small {
+            color: #e63946;
+            letter-spacing: 4px;
+            font-weight: bold;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(50px, 7vw, 90px);
+            margin: 15px 0;
+        }
+
+        .hero-content p {
+            color: #aaa;
+            max-width: 650px;
+            margin: auto;
+        }
+
+
+        /* =========================
+           FILTER SECTION
+        ========================= */
+
+        .filter-section {
+            padding: 50px 8%;
+            background: #101010;
+        }
+
+        .filter-title {
+            margin-bottom: 20px;
+        }
+
+        .filter-title h2 {
+            font-size: 30px;
+        }
+
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .filter {
+            padding: 12px 20px;
+
+            border: 1px solid #333;
+
+            color: #aaa;
+
+            border-radius: 4px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .filter:hover,
+        .filter.active {
+            background: #e63946;
+            border-color: #e63946;
+            color: #fff;
+        }
+
+
+        /* =========================
+           CARS SECTION
+        ========================= */
+
+        .cars-section {
+            padding: 100px 8%;
+            background: #080808;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+
+            margin-bottom: 45px;
+        }
+
+        .section-header small {
+            color: #e63946;
+            letter-spacing: 3px;
+        }
+
+        .section-header h2 {
+            font-size: 48px;
+            margin-top: 8px;
+        }
+
+        .section-header p {
+            color: #777;
+        }
+
+
+        /* =========================
+           CAR GRID
+        ========================= */
+
+        .car-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        /* =========================
+           CAR CARD
+        ========================= */
+
+        .car-card {
+            background: #131313;
+
+            border: 1px solid #252525;
+
+            overflow: hidden;
+
+            position: relative;
+
+            transition: 0.45s;
+        }
+
+        .car-card:hover {
+
+            transform: translateY(-10px);
+
+            border-color: #e63946;
+
+            box-shadow:
+                0 25px 60px rgba(0,0,0,0.6);
+        }
+
+
+        /* =========================
+           BADGE
+        ========================= */
+
+        .badge {
+            position: absolute;
+
+            top: 15px;
+            left: 15px;
+
+            z-index: 5;
+
+            padding: 7px 12px;
+
+            background: #e63946;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================
+           IMAGE
+        ========================= */
+
+        .car-image {
+            height: 270px;
+
+            overflow: hidden;
+
+            position: relative;
+        }
+
+        .car-image img {
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.7s;
+        }
+
+        .car-card:hover .car-image img {
+
+            transform:
+                scale(1.1);
+        }
+
+
+        /* =========================
+           CAR INFO
+        ========================= */
+
+        .car-info {
+            padding: 25px;
+        }
+
+        .car-category {
+
+            color: #e63946;
+
+            font-size: 11px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+        }
+
+        .car-info h3 {
+
+            font-size: 25px;
+
+            margin: 8px 0;
+        }
+
+        .car-info p {
+
+            color: #777;
+
+            font-size: 13px;
+
+            margin-bottom: 18px;
+        }
+
+
+        /* =========================
+           SPECIFICATIONS
+        ========================= */
+
+        .specs {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 8px;
+
+            padding:
+
+                15px 0;
+
+            border-top:
+                1px solid #252525;
+
+            border-bottom:
+                1px solid #252525;
+
+            margin-bottom: 20px;
+        }
+
+        .spec {
+
+            text-align: center;
+
+            color: #888;
+
+            font-size: 11px;
+        }
+
+        .spec strong {
+
+            display: block;
+
+            color: #ddd;
+
+            font-size: 13px;
+
+            margin-bottom: 3px;
+        }
+
+
+        /* =========================
+           PRICE
+        ========================= */
+
+        .car-bottom {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items: center;
+        }
+
+        .price {
+
+            font-size: 23px;
+
+            font-weight: bold;
+        }
+
+        .price span {
+
+            display: block;
+
+            color: #666;
+
+            font-size: 10px;
+
+            font-weight: normal;
+        }
+
+        .details-btn {
+
+            color: #e63946;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .details-btn:hover {
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================
+           SPECIAL BANNER
+        ========================= */
+
+        .banner {
+
+            margin-top: 70px;
+
+            min-height: 350px;
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 60px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.95),
+                    rgba(0,0,0,0.45)
+                ),
+
+                url("https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1800&q=90")
+                center/cover;
+        }
+
+        .banner-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 600px;
+        }
+
+        .banner h2 {
+
+            font-size:
+                clamp(40px, 5vw, 65px);
+
+            line-height: 1;
+
+            margin-bottom: 20px;
+        }
+
+        .banner p {
+
+            color: #bbb;
+
+            margin-bottom: 25px;
+        }
+
+        .btn {
+
+            display: inline-block;
+
+            padding: 14px 25px;
+
+            background: #e63946;
+
+            font-weight: bold;
+
+            border-radius: 4px;
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 15px 30px
+                rgba(230,57,70,0.3);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            background: #050505;
+
+            padding:
+                60px 8% 25px;
+
+            border-top:
+                1px solid #222;
+        }
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                2fr 1fr 1fr 1fr;
+
+            gap: 40px;
+
+            padding-bottom: 40px;
+
+            border-bottom:
+                1px solid #222;
+        }
+
+        .footer-logo {
+
+            font-size: 27px;
+
+            font-weight: 900;
+
+            margin-bottom: 15px;
+        }
+
+        .footer-logo span {
+
+            color: #e63946;
+        }
+
+        footer p {
+
+            color: #666;
+
+            font-size: 13px;
+        }
+
+        footer h4 {
+
+            margin-bottom: 15px;
+        }
+
+        footer ul {
+
+            list-style: none;
+        }
+
+        footer li {
+
+            color: #666;
+
+            margin-bottom: 8px;
+
+            font-size: 13px;
+        }
+
+        footer li:hover {
+
+            color: #e63946;
+        }
+
+        .copyright {
+
+            text-align: center;
+
+            color: #555;
+
+            font-size: 12px;
+
+            padding-top: 25px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .car-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .nav-btn {
+                display: none;
+            }
+
+            .page-hero {
+                min-height: 45vh;
+            }
+
+            .cars-section {
+                padding:
+                    70px 5%;
+            }
+
+            .filter-section {
+                padding:
+                    40px 5%;
+            }
+
+            .car-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header {
+                display: block;
+            }
+
+            .section-header h2 {
+                font-size: 40px;
+            }
+
+            .banner {
+                padding: 40px 25px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header>
+
+    <nav>
+
+        <a href="index.html" class="logo">
+            DRIVE<span>LUX</span>
+        </a>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="cars.html">
+                    Cars
+                </a>
+            </li>
+
+            <li>
+                <a href="services.html">
+                    Services
+                </a>
+            </li>
+
+            <li>
+                <a href="finance.html">
+                    Finance
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+            <li><a href="teams.html">Teams</a></li>
+
+        </ul>
+
+
+        <a
+            href="contact.html"
+            class="nav-btn"
+        >
+            Book Test Drive
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================
+     PAGE HERO
+========================= -->
+
+<section class="page-hero">
+
+    <div class="hero-content">
+
+        <small>
+            OUR VEHICLE COLLECTION
+        </small>
+
+        <h1>
+            Find Your
+            <span style="color:#e63946;">
+                Dream Car.
+            </span>
+        </h1>
+
+        <p>
+            Explore our collection of premium,
+            performance, luxury, family and
+            electric vehicles.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FILTER
+========================= -->
+
+<section class="filter-section">
+
+    <div class="filter-title">
+
+        <h2>
+            Browse By Type
+        </h2>
+
+    </div>
+
+
+    <div class="filters">
+
+        <a
+            href="#all"
+            class="filter active"
+        >
+            All Cars
+        </a>
+
+        <a
+            href="#sedan"
+            class="filter"
+        >
+            Sedans
+        </a>
+
+        <a
+            href="#suv"
+            class="filter"
+        >
+            SUVs
+        </a>
+
+        <a
+            href="#sports"
+            class="filter"
+        >
+            Sports Cars
+        </a>
+
+        <a
+            href="#luxury"
+            class="filter"
+        >
+            Luxury
+        </a>
+
+        <a
+            href="#electric"
+            class="filter"
+        >
+            Electric
+        </a>
+
+        <a
+            href="#family"
+            class="filter"
+        >
+            Family Cars
+        </a>
+
+        <a
+            href="#used"
+            class="filter"
+        >
+            Used Cars
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CARS
+========================= -->
+
+<section class="cars-section" id="all">
+
+
+    <div class="section-header">
+
+        <div>
+
+            <small>
+                PREMIUM COLLECTION
+            </small>
+
+            <h2>
+                Our Cars
+            </h2>
+
+        </div>
+
+        <p>
+            24 vehicles available
+        </p>
+
+    </div>
+
+
+
+    <div class="car-grid">
+
+
+        <!-- ================= CAR 1 ================= -->
+
+        <div class="car-card" id="luxury">
+
+            <span class="badge">
+                Featured
+            </span>
+
+            <div class="car-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=85"
+                    alt="Luxury Mercedes"
+                >
+
+            </div>
+
+
+            <div class="car-info">
+
+                <span class="car-category">
+                    Luxury Sedan
+                </span>
+
+                <h3>
+                    Mercedes S-Class
+                </h3>
+
+                <p>
+                    Luxury, technology and
+                    exceptional comfort.
+                </p>
+
+
+                <div class="specs">
+
+                    <div class="spec">
+                        <strong>2026</strong>
+                        Year
+                    </div>
+
+                    <div class="spec">
+                        <strong>Auto</strong>
+                        Gear
+                    </div>
+
+                    <div class="spec">
+                        <strong>Petrol</strong>
+                        Fuel
+                    </div>
+
+                </div>
+
+
+                <div class="car-bottom">
+
+                    <div class="price">
+                        $118,900
+                        <span>
+                            Starting price
+                        </span>
+                    </div>
+
+                    <a
+                        href="car-details.html"
+                        class="details-btn"
+                    >
+                        Details →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= CAR 2 ================= -->
+
+        <div class="car-card" id="suv">
+
+            <span class="badge">
+                Popular
+            </span>
+
+            <div class="car-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1200&q=85"
+                    alt="Range Rover SUV"
+                >
+
+            </div>
+
+
+            <div class="car-info">
+
+                <span class="car-category">
+                    Premium SUV
+                </span>
+
+                <h3>
+                    Range Rover Sport
+                </h3>
+
+                <p>
+                    Powerful performance with
+                    premium interior comfort.
+                </p>
+
+
+                <div class="specs">
+
+                    <div class="spec">
+                        <strong>2026</strong>
+                        Year
+                    </div>
+
+                    <div class="spec">
+                        <strong>Auto</strong>
+                        Gear
+                    </div>
+
+                    <div class="spec">
+                        <strong>Hybrid</strong>
+                        Fuel
+                    </div>
+
+                </div>
+
+
+                <div class="car-bottom">
+
+                    <div class="price">
+                        $92,500
+                        <span>
+                            Starting price
+                        </span>
+                    </div>
+
+                    <a
+                        href="car-details.html"
+                        class="details-btn"
+                    >
+                        Details →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= CAR 3 ================= -->
+
+        <div class="car-card" id="sports">
+
+            <span class="badge">
+                Performance
+            </span>
+
+            <div class="car-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=1200&q=85"
+                    alt="Sports car"
+                >
+
+            </div>
+
+
+            <div class="car-info">
+
+                <span class="car-category">
+                    Sports Car
+                </span>
+
+                <h3>
+                    Porsche 911
+                </h3>
+
+                <p>
+                    Pure performance engineered
+                    for the ultimate driving experience.
+                </p>
+
+
+                <div class="specs">
+
+                    <div class="spec">
+                        <strong>2026</strong>
+                        Year
+                    </div>
+
+                    <div class="spec">
+                        <strong>Auto</strong>
+                        Gear
+                    </div>
+
+                    <div class="spec">
+                        <strong>Petrol</strong>
+                        Fuel
+                    </div>
+
+                </div>
+
+
+                <div class="car-bottom">
+
+                    <div class="price">
+                        $126,900
+                        <span>
+                            Starting price
+                        </span>
+                    </div>
+
+                    <a
+                        href="car-details.html"
+                        class="details-btn"
+                    >
+                        Details →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= CAR 4 ================= -->
+
+        <div class="car-card" id="electric">
+
+            <span class="badge">
+                Electric
+            </span>
+
+            <div class="car-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=1200&q=85"
+                    alt="Electric car"
+                >
+
+            </div>
+
+
+            <div class="car-info">
+
+                <span class="car-category">
+                    Electric
+                </span>
+
+                <h3>
+                    Tesla Model S
+                </h3>
+
+                <p>
+                    Zero-emission performance
+                    with intelligent technology.
+                </p>
+
+
+                <div class="specs">
+
+                    <div class="spec">
+                        <strong>2026</strong>
+                        Year
+                    </div>
+
+                    <div class="spec">
+                        <strong>Auto</strong>
+                        Gear
+                    </div>
+
+                    <div class="spec">
+                        <strong>Electric</strong>
+                        Fuel
+                    </div>
+
+                </div>
+
+
+                <div class="car-bottom">
+
+                    <div class="price">
+                        $74,900
+                        <span>
+                            Starting price
+                        </span>
+                    </div>
+
+                    <a
+                        href="car-details.html"
+                        class="details-btn"
+                    >
+                        Details →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= CAR 5 ================= -->
+
+        <div class="car-card" id="sedan">
+
+            <div class="car-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1200&q=85"
+                    alt="BMW sedan"
+                >
+
+            </div>
+
+
+            <div class="car-info">
+
+                <span class="car-category">
+                    Executive Sedan
+                </span>
+
+                <h3>
+                    BMW 5 Series
+                </h3>
+
+                <p>
+                    Refined driving dynamics with
+                    premium technology.
+                </p>
+
+
+                <div class="specs">
+
+                    <div class="spec">
+                        <strong>2025</strong>
+                        Year
+                    </div>
+
+                    <div class="spec">
+                        <strong>Auto</strong>
+                        Gear
+                    </div>
+
+                    <div class="spec">
+                        <strong>Petrol</strong>
+                        Fuel
+                    </div>
+
+                </div>
+
+
+                <div class="car-bottom">
+
+                    <div class="price">
+                        $61,900
+                        <span>
+                            Starting price
+                        </span>
+                    </div>
+
+                    <a
+                        href="car-details.html"
+                        class="details-btn"
+                    >
+                        Details →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= CAR 6 ================= -->
+
+        <div class="car-card" id="family">
+
+            <span class="badge">
+                Family
+            </span>
+
+            <div class="car-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1551830820-330a71b99659?auto=format&fit=crop&w=1200&q=85"
+                    alt="Family SUV"
+                >
+
+            </div>
+
+
+            <div class="car-info">
+
+                <span class="car-category">
+                    Family SUV
+                </span>
+
+                <h3>
+                    Toyota Highlander
+                </h3>
+
+                <p>
+                    Spacious, practical and built
+                    for family adventures.
+                </p>
+
+
+                <div class="specs">
+
+                    <div class="spec">
+                        <strong>2025</strong>
+                        Year
+                    </div>
+
+                    <div class="spec">
+                        <strong>Auto</strong>
+                        Gear
+                    </div>
+
+                    <div class="spec">
+                        <strong>Hybrid</strong>
+                        Fuel
+                    </div>
+
+                </div>
+
+
+                <div class="car-bottom">
+
+                    <div class="price">
+                        $47,900
+                        <span>
+                            Starting price
+                        </span>
+                    </div>
+
+                    <a
+                        href="car-details.html"
+                        class="details-btn"
+                    >
+                        Details →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= CAR 7 ================= -->
+
+        <div class="car-card" id="used">
+
+            <span class="badge">
+                Pre-Owned
+            </span>
+
+            <div class="car-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1200&q=85"
+                    alt="Used luxury car"
+                >
+
+            </div>
+
+
+            <div class="car-info">
+
+                <span class="car-category">
+                    Pre-Owned Luxury
+                </span>
+
+                <h3>
+                    Audi A6
+                </h3>
+
+                <p>
+                    Certified pre-owned luxury with
+                    complete inspection.
+                </p>
+
+
+                <div class="specs">
+
+                    <div class="spec">
+                        <strong>2023</strong>
+                        Year
+                    </div>
+
+                    <div class="spec">
+                        <strong>Auto</strong>
+                        Gear
+                    </div>
+
+                    <div class="spec">
+                        <strong>Petrol</strong>
+                        Fuel
+                    </div>
+
+                </div>
+
+
+                <div class="car-bottom">
+
+                    <div class="price">
+                        $42,500
+                        <span>
+                            Starting price
+                        </span>
+                    </div>
+
+                    <a
+                        href="car-details.html"
+                        class="details-btn"
+                    >
+                        Details →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= CAR 8 ================= -->
+
+        <div class="car-card">
+
+            <span class="badge">
+                New
+            </span>
+
+            <div class="car-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1200&q=85"
+                    alt="Luxury SUV"
+                >
+
+            </div>
+
+
+            <div class="car-info">
+
+                <span class="car-category">
+                    Luxury SUV
+                </span>
+
+                <h3>
+                    Porsche Cayenne
+                </h3>
+
+                <p>
+                    Dynamic performance combined
+                    with everyday practicality.
+                </p>
+
+
+                <div class="specs">
+
+                    <div class="spec">
+                        <strong>2026</strong>
+                        Year
+                    </div>
+
+                    <div class="spec">
+                        <strong>Auto</strong>
+                        Gear
+                    </div>
+
+                    <div class="spec">
+                        <strong>Petrol</strong>
+                        Fuel
+                    </div>
+
+                </div>
+
+
+                <div class="car-bottom">
+
+                    <div class="price">
+                        $81,900
+                        <span>
+                            Starting price
+                        </span>
+                    </div>
+
+                    <a
+                        href="car-details.html"
+                        class="details-btn"
+                    >
+                        Details →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= CAR 9 ================= -->
+
+        <div class="car-card">
+
+            <div class="car-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1200&q=85"
+                    alt="Sports coupe"
+                >
+
+            </div>
+
+
+            <div class="car-info">
+
+                <span class="car-category">
+                    Performance Coupe
+                </span>
+
+                <h3>
+                    BMW M4
+                </h3>
+
+                <p>
+                    Aggressive styling and thrilling
+                    performance.
+                </p>
+
+
+                <div class="specs">
+
+                    <div class="spec">
+                        <strong>2025</strong>
+                        Year
+                    </div>
+
+                    <div class="spec">
+                        <strong>Auto</strong>
+                        Gear
+                    </div>
+
+                    <div class="spec">
+                        <strong>Petrol</strong>
+                        Fuel
+                    </div>
+
+                </div>
+
+
+                <div class="car-bottom">
+
+                    <div class="price">
+                        $79,500
+                        <span>
+                            Starting price
+                        </span>
+                    </div>
+
+                    <a
+                        href="car-details.html"
+                        class="details-btn"
+                    >
+                        Details →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         BANNER
+    ========================= -->
+
+    <div class="banner">
+
+        <div class="banner-content">
+
+            <small
+                style="
+                color:#e63946;
+                letter-spacing:3px;
+                "
+            >
+                CAN'T FIND YOUR CAR?
+            </small>
+
+            <h2>
+                We'll Find It
+                For You.
+            </h2>
+
+            <p>
+                Tell us what you're looking for and
+                our vehicle specialists will search
+                our network to find your perfect car.
+            </p>
+
+            <a
+                href="contact.html"
+                class="btn"
+            >
+                Request a Car →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-grid">
+
+
+        <div>
+
+            <div class="footer-logo">
+                DRIVE<span>LUX</span>
+            </div>
+
+            <p>
+                Premium vehicles, professional
+                automotive services and a better
+                way to experience your next car.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Cars
+            </h4>
+
+            <ul>
+
+                <li>
+                    <a href="#sedan">
+                        Sedans
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#suv">
+                        SUVs
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#sports">
+                        Sports Cars
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#electric">
+                        Electric Cars
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Services
+            </h4>
+
+            <ul>
+
+                <li>
+                    <a href="services.html">
+                        Car Service
+                    </a>
+                </li>
+
+                <li>
+                    <a href="services.html">
+                        Financing
+                    </a>
+                </li>
+
+                <li>
+                    <a href="services.html">
+                        Insurance
+                    </a>
+                </li>
+
+                <li>
+                    <a href="services.html">
+                        Detailing
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Company
+            </h4>
+
+            <ul>
+
+                <li>
+                    <a href="about.html">
+                        About Us
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contact.html">
+                        Contact
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contact.html">
+                        Test Drive
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contact.html">
+                        Support
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 DriveLux Motors.
+        All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>
+```

@@ -1,0 +1,1837 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us | DriveLux Motors</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+
+            background: rgba(8, 8, 8, 0.95);
+
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid #222;
+        }
+
+        nav {
+            width: 90%;
+            max-width: 1400px;
+
+            height: 80px;
+
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #e63946;
+        }
+
+        .nav-links {
+            display: flex;
+
+            gap: 30px;
+
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ccc;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #e63946;
+        }
+
+        .nav-button {
+            padding: 11px 20px;
+
+            border: 1px solid #e63946;
+
+            border-radius: 4px;
+
+            transition: 0.3s;
+        }
+
+        .nav-button:hover {
+            background: #e63946;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .contact-hero {
+            min-height: 60vh;
+
+            display: flex;
+
+            align-items: center;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.95),
+                    rgba(0,0,0,0.65),
+                    rgba(0,0,0,0.35)
+                ),
+
+                url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2000&q=90")
+                center/cover;
+        }
+
+        .contact-hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 550px;
+            height: 550px;
+
+            right: -180px;
+            top: 50px;
+
+            border-radius: 50%;
+
+            background: #e63946;
+
+            filter: blur(180px);
+
+            opacity: 0.12;
+
+            animation: glow 5s infinite alternate;
+        }
+
+        @keyframes glow {
+
+            from {
+                transform: scale(.7);
+            }
+
+            to {
+                transform: scale(1.25);
+            }
+
+        }
+
+        .hero-content {
+            width: 90%;
+            max-width: 1400px;
+
+            margin: auto;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+        .hero-content small {
+            color: #e63946;
+
+            letter-spacing: 4px;
+
+            font-weight: bold;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(55px, 8vw, 100px);
+
+            line-height: .92;
+
+            max-width: 900px;
+
+            margin: 20px 0;
+        }
+
+        .hero-content h1 span {
+            color: #e63946;
+        }
+
+        .hero-content p {
+            max-width: 650px;
+
+            color: #aaa;
+
+            font-size: 18px;
+        }
+
+
+        /* =========================
+           CONTACT INFORMATION
+        ========================= */
+
+        .contact-section {
+            padding: 110px 8%;
+
+            background: #101010;
+        }
+
+        .section-heading {
+            text-align: center;
+
+            margin-bottom: 60px;
+        }
+
+        .section-heading small {
+            color: #e63946;
+
+            letter-spacing: 3px;
+
+            font-weight: bold;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(40px, 5vw, 65px);
+
+            line-height: 1;
+
+            margin-top: 12px;
+        }
+
+        .section-heading p {
+            max-width: 650px;
+
+            margin: 20px auto 0;
+
+            color: #777;
+        }
+
+        .contact-cards {
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .contact-card {
+            padding: 40px 30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #191919,
+                    #0d0d0d
+                );
+
+            border: 1px solid #292929;
+
+            text-align: center;
+
+            position: relative;
+
+            overflow: hidden;
+
+            transition: .45s;
+        }
+
+        .contact-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 170px;
+            height: 170px;
+
+            background: #e63946;
+
+            border-radius: 50%;
+
+            filter: blur(90px);
+
+            opacity: 0;
+
+            top: -80px;
+            right: -70px;
+
+            transition: .5s;
+        }
+
+        .contact-card:hover::before {
+            opacity: .18;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+
+            border-color: #e63946;
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+
+            margin: auto auto 25px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: #e63946;
+
+            font-size: 28px;
+        }
+
+        .contact-card h3 {
+            font-size: 22px;
+
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            color: #777;
+
+            font-size: 14px;
+        }
+
+        .contact-card a {
+            color: #ddd;
+
+            transition: .3s;
+        }
+
+        .contact-card a:hover {
+            color: #e63946;
+        }
+
+
+        /* =========================
+           MAIN CONTACT AREA
+        ========================= */
+
+        .contact-main {
+            padding: 120px 8%;
+
+            background: #080808;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1.2fr;
+
+            gap: 60px;
+        }
+
+
+        /* LEFT SIDE */
+
+        .contact-info small {
+            color: #e63946;
+
+            letter-spacing: 3px;
+
+            font-weight: bold;
+        }
+
+        .contact-info h2 {
+            font-size: clamp(40px, 5vw, 60px);
+
+            line-height: 1;
+
+            margin: 15px 0 25px;
+        }
+
+        .contact-info > p {
+            color: #777;
+
+            margin-bottom: 35px;
+        }
+
+        .info-item {
+            display: flex;
+
+            gap: 18px;
+
+            padding: 20px 0;
+
+            border-bottom: 1px solid #252525;
+        }
+
+        .info-icon {
+            width: 45px;
+            height: 45px;
+
+            flex-shrink: 0;
+
+            background: #151515;
+
+            border: 1px solid #333;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            color: #e63946;
+
+            font-size: 20px;
+        }
+
+        .info-item h4 {
+            margin-bottom: 4px;
+
+            font-size: 14px;
+        }
+
+        .info-item p,
+        .info-item a {
+            color: #777;
+
+            font-size: 13px;
+        }
+
+        .info-item a:hover {
+            color: #e63946;
+        }
+
+
+        /* =========================
+           CONTACT FORM
+        ========================= */
+
+        .contact-form {
+            padding: 40px;
+
+            background: #111;
+
+            border: 1px solid #292929;
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,.4);
+        }
+
+        .contact-form h3 {
+            font-size: 30px;
+
+            margin-bottom: 10px;
+        }
+
+        .contact-form > p {
+            color: #666;
+
+            font-size: 13px;
+
+            margin-bottom: 30px;
+        }
+
+        .form-row {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+
+            font-size: 12px;
+
+            color: #aaa;
+
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+
+            width: 100%;
+
+            padding: 14px;
+
+            background: #080808;
+
+            border: 1px solid #333;
+
+            color: #fff;
+
+            outline: none;
+
+            font-family: inherit;
+
+            font-size: 14px;
+
+            transition: .3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #e63946;
+        }
+
+        .form-group textarea {
+            height: 150px;
+
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+
+            border: none;
+
+            padding: 15px;
+
+            background: #e63946;
+
+            color: #fff;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 15px 30px rgba(230,57,70,.25);
+        }
+
+
+        /* =========================
+           LOCATION
+        ========================= */
+
+        .location {
+            padding: 110px 8%;
+
+            background: #101010;
+        }
+
+        .location-container {
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1.3fr;
+
+            gap: 30px;
+        }
+
+        .location-info {
+            padding: 45px;
+
+            background: #151515;
+
+            border: 1px solid #292929;
+        }
+
+        .location-info small {
+            color: #e63946;
+
+            letter-spacing: 3px;
+        }
+
+        .location-info h2 {
+            font-size: 45px;
+
+            line-height: 1;
+
+            margin: 15px 0 20px;
+        }
+
+        .location-info p {
+            color: #777;
+
+            font-size: 14px;
+
+            margin-bottom: 25px;
+        }
+
+        .address-box {
+            padding: 20px;
+
+            background: #0c0c0c;
+
+            border-left: 3px solid #e63946;
+        }
+
+        .address-box strong {
+            display: block;
+
+            margin-bottom: 5px;
+        }
+
+        .address-box span {
+            color: #777;
+
+            font-size: 13px;
+        }
+
+        .map {
+            min-height: 400px;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,.25),
+                    rgba(0,0,0,.55)
+                ),
+                url("https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1200&q=85")
+                center/cover;
+
+            border: 1px solid #292929;
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-card {
+            padding: 25px 35px;
+
+            background: rgba(10,10,10,.92);
+
+            border: 1px solid #e63946;
+
+            text-align: center;
+        }
+
+        .map-card span {
+            font-size: 35px;
+        }
+
+        .map-card h3 {
+            margin: 8px 0;
+        }
+
+        .map-card p {
+            color: #777;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           BUSINESS HOURS
+        ========================= */
+
+        .hours {
+            padding: 100px 8%;
+
+            background: #080808;
+
+            text-align: center;
+        }
+
+        .hours-container {
+            max-width: 700px;
+
+            margin: auto;
+        }
+
+        .hours small {
+            color: #e63946;
+
+            letter-spacing: 3px;
+        }
+
+        .hours h2 {
+            font-size: 50px;
+
+            margin: 10px 0 35px;
+        }
+
+        .hours-list {
+            border: 1px solid #292929;
+        }
+
+        .hour-row {
+            display: flex;
+
+            justify-content: space-between;
+
+            padding: 18px 25px;
+
+            background: #111;
+
+            border-bottom: 1px solid #252525;
+
+            color: #aaa;
+
+            font-size: 14px;
+        }
+
+        .hour-row:last-child {
+            border-bottom: none;
+        }
+
+        .hour-row span:last-child {
+            color: #e63946;
+        }
+
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            padding: 130px 8%;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,.82),
+                    rgba(0,0,0,.92)
+                ),
+
+                url("https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=2000&q=90")
+                center/cover;
+        }
+
+        .cta small {
+            color: #e63946;
+
+            letter-spacing: 3px;
+
+            font-weight: bold;
+        }
+
+        .cta h2 {
+            font-size: clamp(45px, 6vw, 80px);
+
+            line-height: 1;
+
+            margin: 15px 0 20px;
+        }
+
+        .cta h2 span {
+            color: #e63946;
+        }
+
+        .cta p {
+            max-width: 650px;
+
+            margin: auto auto 30px;
+
+            color: #aaa;
+        }
+
+        .cta-btn {
+            display: inline-block;
+
+            padding: 15px 30px;
+
+            background: #e63946;
+
+            border-radius: 4px;
+
+            font-weight: bold;
+
+            transition: .3s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 15px 35px rgba(230,57,70,.3);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 60px 8% 25px;
+
+            background: #050505;
+        }
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns:
+                2fr 1fr 1fr 1fr;
+
+            gap: 40px;
+
+            padding-bottom: 40px;
+
+            border-bottom: 1px solid #222;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+
+            font-weight: 900;
+
+            margin-bottom: 15px;
+        }
+
+        .footer-logo span {
+            color: #e63946;
+        }
+
+        footer p {
+            color: #666;
+
+            font-size: 13px;
+        }
+
+        footer h4 {
+            margin-bottom: 15px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            color: #666;
+
+            font-size: 13px;
+
+            margin-bottom: 8px;
+
+            transition: .3s;
+        }
+
+        footer li:hover {
+            color: #e63946;
+        }
+
+        .copyright {
+            text-align: center;
+
+            color: #555;
+
+            font-size: 12px;
+
+            padding-top: 25px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .contact-cards {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .contact-container,
+            .location-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .nav-button {
+                display: none;
+            }
+
+            .contact-hero {
+                min-height: 70vh;
+            }
+
+            .contact-cards,
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 25px;
+            }
+
+            .location-info {
+                padding: 30px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+        }
+
+        .map-container {
+    width: 100%;
+    margin-top: 40px;
+    overflow: hidden;
+    border: 1px solid #292929;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 450px;
+    display: block;
+}
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header>
+
+    <nav>
+
+        <a href="index.html" class="logo">
+            DRIVE<span>LUX</span>
+        </a>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="cars.html">
+                    Cars
+                </a>
+            </li>
+
+            <li>
+                <a href="services.html">
+                    Services
+                </a>
+            </li>
+
+            <li>
+                <a href="finance.html">
+                    Finance
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html" class="active">
+                    Contact
+                </a>
+            </li>
+    <li><a href="teams.html">Teams</a></li> 
+        </ul>
+
+
+        <a
+            href="#contact-form"
+            class="nav-button"
+        >
+            Get In Touch
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="contact-hero">
+
+    <div class="hero-content">
+
+        <small>
+            CONTACT DRIVELUX
+        </small>
+
+        <h1>
+            Let's Start
+            <span>Your Journey.</span>
+        </h1>
+
+        <p>
+            Have a question about a vehicle, financing,
+            service or test drive? Our team is ready to
+            help you find the right solution.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT CARDS
+========================= -->
+
+<section class="contact-section">
+
+    <div class="section-heading">
+
+        <small>
+            GET IN TOUCH
+        </small>
+
+        <h2>
+            We're Here To Help
+        </h2>
+
+        <p>
+            Contact us through phone, email or visit
+            our location in Hamirpur, Himachal Pradesh.
+        </p>
+
+    </div>
+
+
+    <div class="contact-cards">
+
+
+        <!-- PHONE -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                📞
+            </div>
+
+            <h3>
+                Call Us
+            </h3>
+
+            <p>
+                Speak directly with our team.
+            </p>
+
+            <br>
+
+            <a href="tel:819885992">
+                819885992
+            </a>
+
+        </div>
+
+
+        <!-- EMAIL -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                ✉
+            </div>
+
+            <h3>
+                Email Us
+            </h3>
+
+            <p>
+                Send us your questions anytime.
+            </p>
+
+            <br>
+
+            <a href="mailto:sachinranout5@gmail.com">
+                sachinranout5@gmail.com
+            </a>
+
+        </div>
+
+
+        <!-- ADDRESS -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                📍
+            </div>
+
+            <h3>
+                Visit Us
+            </h3>
+
+            <p>
+                Hamirpur, Himachal Pradesh
+            </p>
+
+            <br>
+
+            <span>
+                PIN: 174311
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT FORM
+========================= -->
+
+<section class="contact-main">
+
+```
+<div class="contact-container">
+
+    <!-- INFORMATION -->
+
+    <div class="contact-info">
+
+        <small>
+            TALK TO OUR TEAM
+        </small>
+
+        <h2>
+            Have A Question?
+        </h2>
+
+        <p>
+            Fill out the form and our team will get
+            back to you as soon as possible. You can
+            ask us about vehicles, finance, servicing,
+            test drives or anything else.
+        </p>
+
+
+        <div class="info-item">
+
+            <div class="info-icon">
+                📞
+            </div>
+
+            <div>
+                <h4>
+                    Phone
+                </h4>
+
+                <a href="tel:819885992">
+                    819885992
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="info-item">
+
+            <div class="info-icon">
+                ✉
+            </div>
+
+            <div>
+                <h4>
+                    Email
+                </h4>
+
+                <a href="mailto:sachinranout5@gmail.com">
+                    sachinranout5@gmail.com
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="info-item">
+
+            <div class="info-icon">
+                📍
+            </div>
+
+            <div>
+                <h4>
+                    Address
+                </h4>
+
+                <p>
+                    Hamirpur, Himachal Pradesh<br>
+                    PIN: 174311
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FORM -->
+
+    <div class="contact-form" id="contact-form">
+
+        <h3>
+            Send Us A Message
+        </h3>
+
+        <p>
+            Complete the form below and we'll contact
+            you about your request.
+        </p>
+
+
+        <!-- FORM SUBMISSION -->
+
+        <form
+            action="https://formsubmit.co/sachinranout5@gmail.com"
+            method="POST"
+        >
+
+            <!-- FormSubmit Settings -->
+
+            <input
+                type="hidden"
+                name="_subject"
+                value="New DriveLux Motors Enquiry"
+            >
+
+            <input
+                type="hidden"
+                name="_captcha"
+                value="false"
+            >
+
+            <input
+                type="hidden"
+                name="_template"
+                value="table"
+            >
+
+            <input
+                type="hidden"
+                name="_next"
+                value="thank-you.html"
+            >
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Your Name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="Your Phone"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Your Email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="service">
+                    What Can We Help With?
+                </label>
+
+                <select
+                    id="service"
+                    name="service"
+                    required
+                >
+
+                    <option value="">
+                        Select an option
+                    </option>
+
+                    <option value="Buying a Car">
+                        Buying a Car
+                    </option>
+
+                    <option value="Used Car">
+                        Used Car
+                    </option>
+
+                    <option value="Finance">
+                        Finance
+                    </option>
+
+                    <option value="Car Service">
+                        Car Service
+                    </option>
+
+                    <option value="Test Drive">
+                        Test Drive
+                    </option>
+
+                    <option value="General Enquiry">
+                        General Enquiry
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="message">
+                    Message
+                </label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Write your message..."
+                    rows="6"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="submit-btn"
+            >
+                SEND MESSAGE →
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+
+
+
+<!-- =========================
+     LOCATION
+========================= -->
+
+<section class="location">
+
+    <div class="location-container">
+
+
+        <div class="location-info">
+
+            <small>
+                OUR LOCATION
+            </small>
+
+            <h2>
+                Come Visit Us.
+            </h2>
+
+            <p>
+                Whether you're ready to buy your next car
+                or simply want to explore our vehicles,
+                we'd love to meet you.
+            </p>
+
+
+            <div class="address-box">
+
+                <strong>
+                    DriveLux Motors
+                </strong>
+
+                <span>
+                    Hamirpur,<br>
+                    Himachal Pradesh,<br>
+                    PIN - 174311
+                </span>
+
+            </div>
+
+            <br>
+
+            <a
+                href="https://www.google.com/maps/search/?api=1&query=Hamirpur%2C%20Himachal%20Pradesh%20174311"
+                target="_blank"
+                class="cta-btn"
+            >
+                GET DIRECTIONS →
+            </a>
+
+        </div>
+
+
+        <div class="map">
+
+            <div class="map-card">
+
+                <span>
+                    📍
+                </span>
+
+                <h3>
+                    Hamirpur
+                </h3>
+
+                <p>
+                    Himachal Pradesh · 174311
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<div class="map-container">
+
+    <!-- Paste your exact Google Maps Embed iframe here -->
+
+    <iframe
+        src=""
+        width="100%"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+</div>
+
+<!-- =========================
+     BUSINESS HOURS
+========================= -->
+
+<section class="hours">
+
+    <div class="hours-container">
+
+        <small>
+            WHEN TO VISIT
+        </small>
+
+        <h2>
+            Opening Hours
+        </h2>
+
+
+        <div class="hours-list">
+
+
+            <div class="hour-row">
+
+                <span>
+                    Monday
+                </span>
+
+                <span>
+                    9:00 AM – 7:00 PM
+                </span>
+
+            </div>
+
+
+            <div class="hour-row">
+
+                <span>
+                    Tuesday
+                </span>
+
+                <span>
+                    9:00 AM – 7:00 PM
+                </span>
+
+            </div>
+
+
+            <div class="hour-row">
+
+                <span>
+                    Wednesday
+                </span>
+
+                <span>
+                    9:00 AM – 7:00 PM
+                </span>
+
+            </div>
+
+
+            <div class="hour-row">
+
+                <span>
+                    Thursday
+                </span>
+
+                <span>
+                    9:00 AM – 7:00 PM
+                </span>
+
+            </div>
+
+
+            <div class="hour-row">
+
+                <span>
+                    Friday
+                </span>
+
+                <span>
+                    9:00 AM – 7:00 PM
+                </span>
+
+            </div>
+
+
+            <div class="hour-row">
+
+                <span>
+                    Saturday
+                </span>
+
+                <span>
+                    9:00 AM – 7:00 PM
+                </span>
+
+            </div>
+
+
+            <div class="hour-row">
+
+                <span>
+                    Sunday
+                </span>
+
+                <span>
+                    Closed
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta">
+
+    <small>
+        READY TO HIT THE ROAD?
+    </small>
+
+    <h2>
+        Your Next Car
+        <span>Starts Here.</span>
+    </h2>
+
+    <p>
+        Explore our collection of vehicles or contact
+        our team to find the perfect car for you.
+    </p>
+
+    <a
+        href="cars.html"
+        class="cta-btn"
+    >
+        EXPLORE CARS →
+    </a>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-grid">
+
+
+        <div>
+
+            <div class="footer-logo">
+                DRIVE<span>LUX</span>
+            </div>
+
+            <p>
+                Premium vehicles, professional automotive
+                services and a better way to experience
+                your next car.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Cars
+            </h4>
+
+            <ul>
+
+                <li>
+                    <a href="cars.html">
+                        New Cars
+                    </a>
+                </li>
+
+                <li>
+                    <a href="cars.html">
+                        Used Cars
+                    </a>
+                </li>
+
+                <li>
+                    <a href="cars.html">
+                        Luxury Cars
+                    </a>
+                </li>
+
+                <li>
+                    <a href="cars.html">
+                        Electric Cars
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Services
+            </h4>
+
+            <ul>
+
+                <li>
+                    <a href="services.html">
+                        Car Service
+                    </a>
+                </li>
+
+                <li>
+                    <a href="services.html">
+                        Detailing
+                    </a>
+                </li>
+
+                <li>
+                    <a href="services.html">
+                        EV Service
+                    </a>
+                </li>
+
+                <li>
+                    <a href="services.html">
+                        Repairs
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Contact
+            </h4>
+
+            <ul>
+
+                <li>
+                    <a href="tel:819885992">
+                        819885992
+                    </a>
+                </li>
+
+                <li>
+                    <a href="mailto:sachinranout5@gmail.com">
+                        Email Us
+                    </a>
+                </li>
+
+                <li>
+                    Hamirpur
+                </li>
+
+                <li>
+                    Himachal Pradesh
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 DriveLux Motors.
+        All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>
+```

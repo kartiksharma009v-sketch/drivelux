@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DriveLux Motors | Premium Cars & Automotive Services</title>
+
+    <style>
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        header {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            width: 90%;
+            max-width: 1400px;
+            margin: auto;
+            height: 85px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #e63946;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ddd;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #e63946;
+        }
+
+        .nav-button {
+            border: 1px solid #e63946;
+            padding: 11px 22px;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .nav-button:hover {
+            background: #e63946;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.95) 10%,
+                    rgba(0,0,0,0.65) 50%,
+                    rgba(0,0,0,0.35)
+                ),
+                url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=90");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+
+            background: #e63946;
+
+            border-radius: 50%;
+            filter: blur(180px);
+
+            opacity: 0.15;
+
+            right: -200px;
+            top: 100px;
+
+            animation: glow 5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                transform: scale(0.8);
+            }
+
+            to {
+                transform: scale(1.2);
+            }
+        }
+
+        .hero-content {
+            width: 90%;
+            max-width: 1400px;
+            margin: auto;
+
+            position: relative;
+            z-index: 5;
+        }
+
+        .small-title {
+            color: #e63946;
+            font-size: 14px;
+            letter-spacing: 4px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 7vw, 105px);
+            line-height: 0.95;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 span {
+            color: #e63946;
+        }
+
+        .hero p {
+            max-width: 600px;
+            color: #ccc;
+            font-size: 18px;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 28px;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #e63946;
+        }
+
+        .primary:hover {
+            background: #ff5260;
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(230,57,70,0.3);
+        }
+
+        .outline {
+            border: 1px solid #777;
+        }
+
+        .outline:hover {
+            background: #fff;
+            color: #000;
+        }
+
+
+        /* =========================
+           STATS
+        ========================= */
+
+        .stats {
+            background: #111;
+            padding: 35px 8%;
+
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+
+            border-bottom: 1px solid #222;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat h2 {
+            font-size: 35px;
+            color: #e63946;
+        }
+
+        .stat p {
+            color: #888;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           GENERAL SECTION
+        ========================= */
+
+        section {
+            padding: 110px 8%;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-heading small {
+            color: #e63946;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(40px, 5vw, 65px);
+            margin-top: 10px;
+        }
+
+        .section-heading p {
+            color: #888;
+            max-width: 600px;
+            margin: 15px auto 0;
+        }
+
+
+        /* =========================
+           CAR CATEGORIES
+        ========================= */
+
+        .categories {
+            background: #080808;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+        }
+
+        .category {
+            height: 330px;
+            position: relative;
+
+            overflow: hidden;
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: flex-end;
+
+            transition: 0.5s;
+        }
+
+        .category:nth-child(1) {
+            background-image:
+                linear-gradient(transparent,#000),
+                url("https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1000&q=80");
+        }
+
+        .category:nth-child(2) {
+            background-image:
+                linear-gradient(transparent,#000),
+                url("https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=1000&q=80");
+        }
+
+        .category:nth-child(3) {
+            background-image:
+                linear-gradient(transparent,#000),
+                url("https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1000&q=80");
+        }
+
+        .category:nth-child(4) {
+            background-image:
+                linear-gradient(transparent,#000),
+                url("https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1000&q=80");
+        }
+
+        .category:hover {
+            transform: translateY(-10px);
+        }
+
+        .category-content {
+            padding: 25px;
+        }
+
+        .category h3 {
+            font-size: 25px;
+        }
+
+        .category p {
+            color: #bbb;
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           CARS
+        ========================= */
+
+        .cars {
+            background: #0d0d0d;
+        }
+
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
+        }
+
+        .car-card {
+            background: #151515;
+            border: 1px solid #242424;
+
+            overflow: hidden;
+
+            transition: 0.4s;
+        }
+
+        .car-card:hover {
+            transform: translateY(-10px);
+            border-color: #e63946;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .car-image {
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .car-image img {
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s;
+        }
+
+        .car-card:hover .car-image img {
+            transform: scale(1.08);
+        }
+
+        .car-info {
+            padding: 25px;
+        }
+
+        .car-type {
+            color: #e63946;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .car-info h3 {
+            font-size: 25px;
+            margin: 7px 0;
+        }
+
+        .car-details {
+            display: flex;
+            gap: 15px;
+            color: #777;
+            font-size: 13px;
+            margin: 15px 0;
+        }
+
+        .price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price strong {
+            font-size: 21px;
+        }
+
+        .view {
+            color: #e63946;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           SERVICES
+        ========================= */
+
+        .services {
+            background: #080808;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+        }
+
+        .service {
+            padding: 40px 30px;
+            background: #111;
+            border: 1px solid #222;
+            transition: 0.4s;
+        }
+
+        .service:hover {
+            transform: translateY(-8px);
+            border-color: #e63946;
+        }
+
+        .service-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .service h3 {
+            font-size: 21px;
+            margin-bottom: 12px;
+        }
+
+        .service p {
+            color: #777;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           WHY US
+        ========================= */
+
+        .why {
+            background: #111;
+        }
+
+        .why-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .why-image {
+            height: 600px;
+            background:
+                url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=85")
+                center/cover;
+        }
+
+        .why-content h2 {
+            font-size: 55px;
+            margin-bottom: 25px;
+        }
+
+        .why-content > p {
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .why-list {
+            list-style: none;
+        }
+
+        .why-list li {
+            padding: 17px 0;
+            border-bottom: 1px solid #292929;
+            color: #ccc;
+        }
+
+        .why-list li::before {
+            content: "✓";
+            color: #e63946;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           FINANCE
+        ========================= */
+
+        .finance {
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.75),
+                    rgba(0,0,0,0.75)
+                ),
+                url("https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1800&q=85")
+                center/cover;
+
+            text-align: center;
+        }
+
+        .finance h2 {
+            font-size: clamp(45px,6vw,80px);
+            margin-bottom: 20px;
+        }
+
+        .finance p {
+            max-width: 650px;
+            color: #ccc;
+            margin: 0 auto 30px;
+        }
+
+
+        /* =========================
+           TESTIMONIALS
+        ========================= */
+
+        .testimonials {
+            background: #080808;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+        }
+
+        .testimonial {
+            padding: 35px;
+            background: #121212;
+            border: 1px solid #222;
+        }
+
+        .stars {
+            color: #e63946;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .testimonial p {
+            color: #aaa;
+            margin-bottom: 25px;
+        }
+
+        .customer {
+            font-weight: bold;
+        }
+
+        .customer span {
+            display: block;
+            color: #666;
+            font-size: 12px;
+            font-weight: normal;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            background: #111;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info h2 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            margin-bottom: 20px;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: #e63946;
+            margin-bottom: 5px;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 16px;
+
+            background: #080808;
+            color: white;
+
+            border: 1px solid #333;
+            outline: none;
+        }
+
+        .contact-form textarea {
+            height: 140px;
+            resize: none;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            border-color: #e63946;
+        }
+
+        .contact-form button {
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #050505;
+            padding: 60px 8% 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #222;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo span {
+            color: #e63946;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        footer h4 {
+            margin-bottom: 15px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 9px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        footer li:hover {
+            color: #e63946;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #555;
+            padding-top: 25px;
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .car-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .service-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .why-container,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-image {
+                height: 450px;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 75px 5%;
+            }
+
+            .hero {
+                min-height: 850px;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .nav-button {
+                display: none;
+            }
+
+            .stats,
+            .category-grid,
+            .car-grid,
+            .service-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category {
+                height: 280px;
+            }
+
+            .why-content h2,
+            .contact-info h2 {
+                font-size: 40px;
+            }
+
+            .why-image {
+                height: 350px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header>
+
+    <nav>
+
+        <a href="#" class="logo">
+            DRIVE<span>LUX</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cars.html">Cars</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#finance">Finance</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+              <li><a href="teams.html">Teams</a></li>
+        </ul>
+
+        <a href="#contact" class="nav-button">
+            Book a Test Drive
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="small-title">
+            PREMIUM AUTOMOTIVE EXPERIENCE
+        </div>
+
+        <h1>
+            DRIVE YOUR
+            <span>DREAM.</span>
+        </h1>
+
+        <p>
+            Discover premium new and pre-owned vehicles,
+            flexible financing, expert servicing and everything
+            you need for your next journey.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#cars" class="btn primary">
+                Explore Cars →
+            </a>
+
+            <a href="#contact" class="btn outline">
+                Book Test Drive
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     STATS
+========================= -->
+
+<div class="stats">
+
+    <div class="stat">
+        <h2>15+</h2>
+        <p>Years Experience</p>
+    </div>
+
+    <div class="stat">
+        <h2>2.5K+</h2>
+        <p>Cars Delivered</p>
+    </div>
+
+    <div class="stat">
+        <h2>98%</h2>
+        <p>Happy Customers</p>
+    </div>
+
+    <div class="stat">
+        <h2>24/7</h2>
+        <p>Customer Support</p>
+    </div>
+
+</div>
+
+
+<!-- =========================
+     CATEGORIES
+========================= -->
+
+<section class="categories">
+
+    <div class="section-heading">
+
+        <small>FIND YOUR STYLE</small>
+
+        <h2>Choose Your Car</h2>
+
+        <p>
+            From everyday city cars to powerful performance
+            machines, we have something for every driver.
+        </p>
+
+    </div>
+
+
+    <div class="category-grid">
+
+        <a href="#cars" class="category">
+
+            <div class="category-content">
+
+                <h3>Sedans</h3>
+
+                <p>
+                    Comfort & everyday performance
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <a href="#cars" class="category">
+
+            <div class="category-content">
+
+                <h3>SUVs</h3>
+
+                <p>
+                    Space, power & adventure
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <a href="#cars" class="category">
+
+            <div class="category-content">
+
+                <h3>Sports Cars</h3>
+
+                <p>
+                    Performance without compromise
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <a href="#cars" class="category">
+
+            <div class="category-content">
+
+                <h3>Luxury</h3>
+
+                <p>
+                    Premium comfort & technology
+                </p>
+
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FEATURED CARS
+========================= -->
+
+<section class="cars" id="cars">
+
+    <div class="section-heading">
+
+        <small>OUR COLLECTION</small>
+
+        <h2>Featured Vehicles</h2>
+
+        <p>
+            Explore some of our most popular vehicles.
+        </p>
+
+    </div>
+
+
+    <div class="car-grid">
+
+
+        <!-- CAR 1 -->
+
+        <div class="car-card">
+
+            <div class="car-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1000&q=80"
+                    alt="Luxury sedan"
+                >
+
+            </div>
+
+            <div class="car-info">
+
+                <span class="car-type">
+                    Luxury Sedan
+                </span>
+
+                <h3>Mercedes Premium</h3>
+
+                <div class="car-details">
+                    <span>Automatic</span>
+                    <span>Petrol</span>
+                    <span>5 Seats</span>
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        $48,900
+                    </strong>
+
+                    <a href="#contact" class="view">
+                        View Details →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CAR 2 -->
+
+        <div class="car-card">
+
+            <div class="car-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1000&q=80"
+                    alt="Premium SUV"
+                >
+
+            </div>
+
+            <div class="car-info">
+
+                <span class="car-type">
+                    Premium SUV
+                </span>
+
+                <h3>Range Rover Sport</h3>
+
+                <div class="car-details">
+                    <span>Automatic</span>
+                    <span>Hybrid</span>
+                    <span>5 Seats</span>
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        $72,500
+                    </strong>
+
+                    <a href="#contact" class="view">
+                        View Details →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CAR 3 -->
+
+        <div class="car-card">
+
+            <div class="car-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&w=1000&q=80"
+                    alt="Sports car"
+                >
+
+            </div>
+
+            <div class="car-info">
+
+                <span class="car-type">
+                    Sports Car
+                </span>
+
+                <h3>Performance GT</h3>
+
+                <div class="car-details">
+                    <span>Automatic</span>
+                    <span>Petrol</span>
+                    <span>2 Seats</span>
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        $89,900
+                    </strong>
+
+                    <a href="#contact" class="view">
+                        View Details →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CAR 4 -->
+
+        <div class="car-card">
+
+            <div class="car-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1000&q=80"
+                    alt="Electric car"
+                >
+
+            </div>
+
+            <div class="car-info">
+
+                <span class="car-type">
+                    Electric
+                </span>
+
+                <h3>Future EV</h3>
+
+                <div class="car-details">
+                    <span>Automatic</span>
+                    <span>Electric</span>
+                    <span>5 Seats</span>
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        $55,900
+                    </strong>
+
+                    <a href="#contact" class="view">
+                        View Details →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CAR 5 -->
+
+        <div class="car-card">
+
+            <div class="car-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1000&q=80"
+                    alt="Luxury coupe"
+                >
+
+            </div>
+
+            <div class="car-info">
+
+                <span class="car-type">
+                    Luxury Coupe
+                </span>
+
+                <h3>Executive Coupe</h3>
+
+                <div class="car-details">
+                    <span>Automatic</span>
+                    <span>Petrol</span>
+                    <span>4 Seats</span>
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        $67,400
+                    </strong>
+
+                    <a href="#contact" class="view">
+                        View Details →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CAR 6 -->
+
+        <div class="car-card">
+
+            <div class="car-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1000&q=80"
+                    alt="Family SUV"
+                >
+
+            </div>
+
+            <div class="car-info">
+
+                <span class="car-type">
+                    Family SUV
+                </span>
+
+                <h3>Adventure X</h3>
+
+                <div class="car-details">
+                    <span>Automatic</span>
+                    <span>Diesel</span>
+                    <span>7 Seats</span>
+                </div>
+
+                <div class="price">
+
+                    <strong>
+                        $44,900
+                    </strong>
+
+                    <a href="#contact" class="view">
+                        View Details →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SERVICES
+========================= -->
+
+<section class="services" id="services">
+
+    <div class="section-heading">
+
+        <small>COMPLETE AUTOMOTIVE CARE</small>
+
+        <h2>Our Services</h2>
+
+        <p>
+            More than just a dealership. We take care of
+            your vehicle throughout its entire journey.
+        </p>
+
+    </div>
+
+
+    <div class="service-grid">
+
+
+        <div class="service">
+
+            <div class="service-icon">🚘</div>
+
+            <h3>New Car Sales</h3>
+
+            <p>
+                Explore the latest models with advanced
+                features, technology and manufacturer warranties.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-icon">🔑</div>
+
+            <h3>Used Cars</h3>
+
+            <p>
+                Quality pre-owned vehicles inspected by
+                our automotive experts before every sale.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-icon">💰</div>
+
+            <h3>Car Financing</h3>
+
+            <p>
+                Flexible financing options designed around
+                your budget and financial requirements.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-icon">🔧</div>
+
+            <h3>Car Service</h3>
+
+            <p>
+                Professional maintenance, diagnostics,
+                repairs and manufacturer-level servicing.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-icon">🛞</div>
+
+            <h3>Tyres & Wheels</h3>
+
+            <p>
+                Premium tyres, wheel alignment, balancing
+                and complete tyre replacement services.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-icon">✨</div>
+
+            <h3>Car Detailing</h3>
+
+            <p>
+                Interior cleaning, exterior detailing,
+                polishing and premium vehicle protection.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-icon">🔄</div>
+
+            <h3>Car Exchange</h3>
+
+            <p>
+                Trade in your current vehicle and upgrade
+                to your next dream car.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-icon">📋</div>
+
+            <h3>Insurance Support</h3>
+
+            <p>
+                Get assistance with vehicle insurance,
+                renewals and claim-related services.
+            </p>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-icon">⚡</div>
+
+            <h3>EV Services</h3>
+
+            <p>
+                Dedicated electric vehicle support,
+                diagnostics and charging solutions.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     WHY US
+========================= -->
+
+<section class="why" id="about">
+
+    <div class="why-container">
+
+        <div class="why-image"></div>
+
+        <div class="why-content">
+
+            <small class="small-title">
+                WHY DRIVELUX
+            </small>
+
+            <h2>
+                A Better Way
+                To Buy A Car.
+            </h2>
+
+            <p>
+                We believe buying a car should be exciting,
+                transparent and stress-free. Our team works
+                with you from the first test drive to years
+                after your purchase.
+            </p>
+
+
+            <ul class="why-list">
+
+                <li>
+                    100% inspected pre-owned vehicles
+                </li>
+
+                <li>
+                    Transparent pricing with no hidden fees
+                </li>
+
+                <li>
+                    Flexible finance & leasing options
+                </li>
+
+                <li>
+                    Expert automotive technicians
+                </li>
+
+                <li>
+                    Complete after-sales support
+                </li>
+
+                <li>
+                    Easy vehicle exchange program
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FINANCE
+========================= -->
+
+<section class="finance" id="finance">
+
+    <div class="section-heading">
+
+        <small>MAKE IT YOURS</small>
+
+        <h2>
+            Drive Now.
+            Pay Your Way.
+        </h2>
+
+        <p>
+            Get flexible financing options with competitive
+            rates and payment plans designed around your needs.
+        </p>
+
+        <a href="#contact" class="btn primary">
+            Check Finance Options →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TESTIMONIALS
+========================= -->
+
+<section class="testimonials">
+
+    <div class="section-heading">
+
+        <small>CUSTOMER STORIES</small>
+
+        <h2>What Drivers Say</h2>
+
+    </div>
+
+
+    <div class="testimonial-grid">
+
+
+        <div class="testimonial">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                "The entire experience was smooth from start
+                to finish. The team helped me find exactly
+                the car I wanted."
+            </p>
+
+            <div class="customer">
+                James Wilson
+                <span>Verified Customer</span>
+            </div>
+
+        </div>
+
+
+        <div class="testimonial">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                "Great selection of cars and very transparent
+                pricing. The financing process was incredibly
+                easy."
+            </p>
+
+            <div class="customer">
+                Sophia Martin
+                <span>Verified Customer</span>
+            </div>
+
+        </div>
+
+
+        <div class="testimonial">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+                "Their service department is excellent.
+                Professional staff and fast turnaround every
+                time."
+            </p>
+
+            <div class="customer">
+                Daniel Carter
+                <span>Verified Customer</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="contact" id="contact">
+
+    <div class="contact-grid">
+
+
+        <div class="contact-info">
+
+            <small class="small-title">
+                GET IN TOUCH
+            </small>
+
+            <h2>
+                Let's Find
+                Your Car.
+            </h2>
+
+            <p>
+                Looking for a new vehicle, booking a test drive,
+                selling your car or need automotive service?
+                Our team is ready to help.
+            </p>
+
+
+            <div class="contact-item">
+
+                <strong>PHONE</strong>
+
+                +1 800 555 0199
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <strong>EMAIL</strong>
+
+                hello@drivelux.com
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <strong>LOCATION</strong>
+
+                125 Motor Avenue, New York, USA
+
+            </div>
+
+        </div>
+
+
+        <form class="contact-form">
+
+            <input
+                type="text"
+                placeholder="Your Name"
+            >
+
+            <input
+                type="email"
+                placeholder="Email Address"
+            >
+
+            <input
+                type="tel"
+                placeholder="Phone Number"
+            >
+
+            <select>
+
+                <option>Select Service</option>
+
+                <option>Buy a Car</option>
+
+                <option>Book Test Drive</option>
+
+                <option>Car Financing</option>
+
+                <option>Sell / Exchange Car</option>
+
+                <option>Car Service</option>
+
+                <option>EV Service</option>
+
+            </select>
+
+            <textarea
+                placeholder="Tell us what you are looking for..."
+            ></textarea>
+
+            <button
+                type="submit"
+                class="btn primary"
+            >
+                Send Enquiry →
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-grid">
+
+
+        <div>
+
+            <div class="footer-logo">
+                DRIVE<span>LUX</span>
+            </div>
+
+            <p>
+                Premium vehicles, professional automotive
+                services and a better way to experience your
+                next car.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>Cars</h4>
+
+            <ul>
+                <li><a href="#cars">New Cars</a></li>
+                <li><a href="#cars">Used Cars</a></li>
+                <li><a href="#cars">Luxury Cars</a></li>
+                <li><a href="#cars">Electric Cars</a></li>
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h4>Services</h4>
+
+            <ul>
+                <li><a href="#services">Car Service</a></li>
+                <li><a href="#services">Financing</a></li>
+                <li><a href="#services">Insurance</a></li>
+                <li><a href="#services">Car Detailing</a></li>
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h4>Company</h4>
+
+            <ul>
+                <li><a href="index.html">About Us</a></li>
+                <li><a href="cars.html">Contact</a></li>
+                <li><a href="#contact">Test Drive</a></li>
+                <li><a href="#contact">Support</a></li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 DriveLux Motors. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>
+```
